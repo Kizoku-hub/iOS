@@ -4,7 +4,7 @@ struct ContentView: View {
   let studentName = "Tran Trung Kien"
   let studentID = "SESEIU24014"
   var age = 24
-  var gpa = 12,345678
+  var gpa = 36.67
   let isStudent = true
   
   var body: some View {
@@ -21,13 +21,13 @@ struct ContentView: View {
       .ignoresSafeArea()
       
       VStack {
-        Zstack {
+        ZStack {
           Circle()
             .fill(Color.white.opacity(0.8))
             .frame(width: 130, height: 130)
-          Image(systemName: "graduationap.fill")
+          Image(systemName: "graduationcap.fill")
             .font(.system(size: 65))
-            .foreroundStyle(.blue)
+            .foregroundStyle(.blue)
           }
           .padding(.top, 20)
       
@@ -36,7 +36,7 @@ struct ContentView: View {
           Text("Student Profile")
             .font(.largeTitle)
             .fontWeight(.bold)
-            .foreroundStyle(.blue)
+            .foregroundStyle(.blue)
           StudentRow(
             icon: "person.fill",
             title: "Name",
@@ -50,23 +50,23 @@ struct ContentView: View {
           StudentRow(
             icon: "calendar",
             title: "Age",
-            value: age
+            value: "\(age)"
           )
           StudentRow(
             icon: "chart.bar.fill",
             title: "GPA",
-            value: gpa
+            value: String(format: "%.2f", gpa
           )
           StudentRow(
-            icon: "checkmark,circle.fill",
+            icon: "checkmark.circle.fill",
             title: "Student",
             value: isStudent.description,
-            valueColor: green
+            valueColor: Color.green
           )
         }
         .padding(25)
         .background(
-          Calor.white.opacity(0.9)
+          Color.white.opacity(0.9)
         )
         .clipShape(RoundedRectangle(cornerRadius: 25))
         .shadow(
